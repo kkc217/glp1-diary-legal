@@ -1,0 +1,164 @@
+/* 글피 다이어리 법적 고지 페이지 — 앱과 같은 톤(소프트 슬레이트). */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+:root {
+  --paper: #f3f1e9;
+  --card: #fff;
+  --ink: #23271f;
+  --body: #5a6055;
+  --muted: #8a8f82;
+  --slate: #5f7189;
+  --line: #e4e0d6;
+  --accent-bg: #eaeef3;
+  --accent-fg: #48586e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 20px 80px;
+  background: var(--paper);
+  color: var(--body);
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+}
+
+main, header { max-width: 720px; margin: 0 auto; }
+
+header { padding: 48px 0 8px; }
+
+/* 뒤로가기 줄에 로고를 함께 두어 어느 서비스의 문서인지 바로 보이게 한다. */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 28px;
+  color: var(--slate);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.back:hover .label { text-decoration: underline; }
+
+/*
+ * 로고는 점 4개뿐이라 그냥 축소하면 얼룩처럼 보인다.
+ * 도면도 작은 크기에서는 항상 흰 카드에 얹으므로 여기서도 카드를 씌운다.
+ */
+.mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--card);
+  box-shadow: 0 4px 16px rgba(53, 66, 79, 0.08);
+}
+
+/* index 히어로 — 앱 런처 아이콘과 같은 처리. */
+.mark--hero {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 22px;
+}
+
+/* 뒤로가기 줄. */
+.mark--sm {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  box-shadow: inset 0 0 0 1.5px #e2ded5;
+}
+
+h1 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.35;
+}
+
+.effective {
+  margin: 0 0 36px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h2 {
+  margin: 40px 0 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+h2:first-of-type { border-top: none; padding-top: 0; }
+
+p { margin: 0 0 14px; }
+
+ol, ul { margin: 0 0 14px; padding-left: 22px; }
+li { margin-bottom: 8px; }
+li > ul, li > ol { margin-top: 8px; }
+
+strong { color: var(--ink); font-weight: 700; }
+
+/* 표는 좁은 화면에서 페이지 자체를 밀지 않도록 스스로 스크롤한다. */
+.table-wrap { overflow-x: auto; margin: 0 0 16px; }
+table {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 14px;
+}
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+th { background: var(--accent-bg); color: var(--accent-fg); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+
+.contact {
+  margin: 8px 0 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border-radius: 16px;
+  list-style: none;
+}
+.contact li { margin: 0 0 4px; }
+.contact li:last-child { margin: 0; }
+
+a { color: var(--slate); }
+
+footer {
+  max-width: 720px;
+  margin: 56px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+/* 목차(index) */
+.cards { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+.card {
+  display: block;
+  padding: 22px;
+  background: var(--card);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.12s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card h3 { margin: 0 0 4px; color: var(--ink); font-size: 16px; font-weight: 700; }
+.card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+
+.lede { font-size: 15.5px; }
+
+@media (max-width: 480px) {
+  header { padding-top: 36px; }
+  h1 { font-size: 24px; }
+}
